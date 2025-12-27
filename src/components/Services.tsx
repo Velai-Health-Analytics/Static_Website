@@ -98,7 +98,7 @@ const Services: React.FC = () => {
       <div className="flex-1 w-full">
          <div className="aspect-video w-full rounded-2xl bg-[#1e2330] border border-white/5 flex items-center justify-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-blue-500/5 group-hover:opacity-100 transition-opacity" />
-            <span className="text-gray-600 font-mono text-sm z-10 group-hover:text-white transition-colors">Illustration</span>
+            <span className="text-gray-600 font-mono text-sm z-10 group-hover:text-white transition-colors">Coming Soon.......</span>
             
             {/* Abstract Decoration */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-emerald-500/20 rounded-full blur-3xl animate-pulse group-hover:bg-emerald-500/30 transition-all duration-500" />

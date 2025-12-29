@@ -135,7 +135,7 @@ const Hero: React.FC = () => {
                 <div className="absolute top-full mt-6 whitespace-nowrap z-20">
                   <div className="text-xs font-mono text-emerald-500 bg-black/90 px-3 py-1.5 rounded-full border border-emerald-500/30 flex items-center gap-2 shadow-xl">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"/>
-                    ID: 8X-92
+                    Patient: 8X-92
                   </div>
                 </div>
               </motion.div>

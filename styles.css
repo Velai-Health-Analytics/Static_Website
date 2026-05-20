@@ -981,6 +981,21 @@ h3.display { font-size: clamp(28px, 3.2vw, 44px); }
   display: flex;
   flex-direction: column;
   gap: 16px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  background: var(--paper);
+  transition:
+    transform  0.38s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.38s ease,
+    box-shadow 0.38s ease;
+}
+.team-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--line);
+  box-shadow:
+    0 4px 12px oklch(0.20 0.014 200 / 0.06),
+    0 16px 40px oklch(0.20 0.014 200 / 0.08);
 }
 .team-card .photo {
   /* Remove aspect-ratio to let the image define the size */

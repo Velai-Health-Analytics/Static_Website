@@ -1007,7 +1007,10 @@ h3.display { font-size: clamp(28px, 3.2vw, 44px); }
   
   /* Keep your styling */
   border-radius: var(--radius);
-  background: repeating-linear-gradient(135deg, var(--paper-3) 0 8px, var(--paper-2) 8px 16px);
+  background: var(--paper); /* Keep the clean background behind the image */
+  
+  /* Creates a soft, diffuse green glow behind the image */
+  box-shadow: 0 0 20px 5px rgba(42, 91, 69, 0.2);
   border: 1px solid var(--line-soft);
   position: relative;
   display: flex; /* Changed from grid to flex for easier image alignment */

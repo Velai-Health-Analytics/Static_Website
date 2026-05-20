@@ -383,16 +383,9 @@ h3.display { font-size: clamp(28px, 3.2vw, 44px); }
 }
 .nav-cta { margin-left: 8px; }
 
-/* ── Mobile nav actions (CTA + hamburger) ──────────── */
-.nav-mobile-actions {
-  display: none; /* shown via media query */
-  align-items: center;
-  gap: 8px;
-}
-
-/* Hamburger button */
+/* Hamburger button — hidden on desktop, shown via media query on mobile */
 .nav-menu-btn {
-  display: flex;
+  display: none; /* shown via media query */
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -453,6 +446,10 @@ h3.display { font-size: clamp(28px, 3.2vw, 44px); }
 }
 .nav-mobile-link:hover { color: var(--ink); padding-left: 8px; }
 .nav-mobile-link.active { color: var(--forest); }
+.nav-mobile-cta-menu {
+  margin-top: 24px;
+  align-self: flex-start;
+}
 
 /* Footer */
 .footer {
@@ -1391,7 +1388,7 @@ h3.display { font-size: clamp(28px, 3.2vw, 44px); }
   .metric-row { grid-template-columns: 1fr; }
   /* Replace desktop nav with mobile hamburger */
   .nav-links { display: none; }
-  .nav-mobile-actions { display: flex; }
+  .nav-menu-btn { display: flex; }
   .mod-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
   .field-row { grid-template-columns: 1fr; }
@@ -1423,9 +1420,6 @@ h3.display { font-size: clamp(28px, 3.2vw, 44px); }
   .pub-row h4 { font-size: 15px; }
   .section { padding-block: clamp(56px, 10vw, 80px); }
   .section-tight { padding-block: clamp(40px, 8vw, 56px); }
-  /* On very small screens, shrink the inline CTA so it fits beside the hamburger */
-  .nav-mobile-cta-inline { font-size: 12px; padding: 7px 12px; }
-  .nav-mobile-cta-inline .arrow { display: none; }
 }
 
 /* Tweak: palette variants — default is forest (no override needed) */

@@ -74,27 +74,17 @@ function Nav({ route, navigate }) {
             </a>
           </div>
 
-          {/* Mobile: CTA button + hamburger toggle */}
-          <div className="nav-mobile-actions">
-            <a
-              href="#contact"
-              className="btn btn-primary nav-cta nav-mobile-cta-inline"
-              onClick={(e) => { e.preventDefault(); handleNav("contact"); }}
-            >
-              Start a conversation
-              <span className="arrow">→</span>
-            </a>
-            <button
-              className={"nav-menu-btn" + (menuOpen ? " open" : "")}
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              <span className="nav-menu-bar" />
-              <span className="nav-menu-bar" />
-              <span className="nav-menu-bar" />
-            </button>
-          </div>
+          {/* Mobile: hamburger toggle only */}
+          <button
+            className={"nav-menu-btn" + (menuOpen ? " open" : "")}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span className="nav-menu-bar" />
+            <span className="nav-menu-bar" />
+            <span className="nav-menu-bar" />
+          </button>
         </div>
       </nav>
 
@@ -117,6 +107,14 @@ function Nav({ route, navigate }) {
                 {l.label}
               </a>
             ))}
+            <a
+              href="#contact"
+              className="btn btn-primary nav-mobile-cta-menu"
+              onClick={(e) => { e.preventDefault(); handleNav("contact"); }}
+            >
+              Start a conversation
+              <span className="arrow">→</span>
+            </a>
           </nav>
         </div>
       )}

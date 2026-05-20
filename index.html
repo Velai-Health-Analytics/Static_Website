@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Velai Health Analytics — Cardiovascular risk intelligence</title>
+  <meta name="description" content="Velai Health Analytics builds cardiovascular AI risk intelligence for healthcare institutions, medtech teams and research networks — and is the maker of Second Opinion." />
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Newsreader (editorial serif) + Geist (modern grotesque) + Geist Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="home.css" />
+
+  <!-- React + Babel (pinned) -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!--
+    Script load order matters — each file exposes globals to window.
+    Load dependencies before their consumers.
+
+    Layer 1: Site chrome atoms
+  -->
+  <script type="text/babel" src="components/chrome/BrandMark.jsx"></script>
+  <script type="text/babel" src="components/chrome/Nav.jsx"></script>
+  <script type="text/babel" src="components/chrome/Footer.jsx"></script>
+
+  <!--
+    Layer 3: SVG components (no React component deps)
+  -->
+  <script type="text/babel" src="components/svg/HeartBase.jsx"></script>
+  <script type="text/babel" src="components/svg/HeartStage.jsx"></script>
+  <script type="text/babel" src="components/svg/DaVinciSVG.jsx"></script>
+  <script type="text/babel" src="components/svg/HeartFramePlayer.jsx"></script>
+  <script type="text/babel" src="components/svg/ECGPanel.jsx"></script>
+
+  <!--
+    Layer 4: Shared hooks and UI primitives
+  -->
+  <script type="text/babel" src="hooks/hooks.jsx"></script>
+  <script type="text/babel" src="components/shared/SectionMark.jsx"></script>
+  <script type="text/babel" src="components/shared/PageHero.jsx"></script>
+
+  <!--
+    Layer 5: Home page building blocks
+  -->
+  <script type="text/babel" src="components/home/SideIndex.jsx"></script>
+  <script type="text/babel" src="components/home/HeartPanel.jsx"></script>
+  <script type="text/babel" src="components/home/DaVinciPanel.jsx"></script>
+  <script type="text/babel" src="components/home/DaVinciBridge.jsx"></script>
+  <script type="text/babel" src="components/home/sections/SectionHero.jsx"></script>
+  <script type="text/babel" src="components/home/sections/SectionModalities.jsx"></script>
+  <script type="text/babel" src="components/home/sections/SectionFlow.jsx"></script>
+  <script type="text/babel" src="components/home/sections/SectionAudience.jsx"></script>
+  <script type="text/babel" src="components/home/sections/SectionProof.jsx"></script>
+  <script type="text/babel" src="components/home/sections/SectionCTA.jsx"></script>
+
+  <!--
+    Layer 6: Pages
+  -->
+  <script type="text/babel" src="pages/Home.jsx"></script>
+  <script type="text/babel" src="pages/About.jsx"></script>
+  <script type="text/babel" src="pages/Services.jsx"></script>
+  <script type="text/babel" src="pages/Publications.jsx"></script>
+  <script type="text/babel" src="pages/Contact.jsx"></script>
+
+  <!--
+    Layer 7: App root (mounts to #root)
+  -->
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

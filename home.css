@@ -33,10 +33,10 @@
   padding-right: clamp(24px, 3vw, 48px);
 }
 
-/* Text RIGHT — right-pad aligns with navbar container edge */
+/* Text RIGHT — right-pad aligns with navbar content edge (container centering + inner gutter) */
 .hs-txt-r {
   padding-left:  clamp(24px, 3vw, 48px);
-  padding-right: max(var(--gutter), calc((100vw - var(--container, 1240px)) / 2));
+  padding-right: max(var(--gutter), calc((100vw - var(--container, 1240px)) / 2 + var(--gutter)));
 }
 
 /* Image columns */

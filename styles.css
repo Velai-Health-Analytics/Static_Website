@@ -1007,7 +1007,7 @@ h3.display { font-size: clamp(28px, 3.2vw, 44px); }
   
   /* Keep your styling */
   border-radius: var(--radius);
-  background: var(--paper); /* Keep the clean background behind the image */
+  background: var(--forest); /* Keep the clean background behind the image */
   
   /* Creates a soft, diffuse green glow behind the image */
   box-shadow: 0 0 20px 5px rgba(42, 91, 69, 0.2);

@@ -34,6 +34,7 @@ function DaVinciPanel({ isActive, variant, animKey, hoveredId }) {
   const isMod    = variant === "mod";
   const panelRef = useRef(null);
   const [scrollProg, setScrollProg] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1100);
 
   useEffect(() => {
     const tick = () => {
@@ -50,11 +51,17 @@ function DaVinciPanel({ isActive, variant, animKey, hoveredId }) {
     return () => window.removeEventListener("scroll", tick);
   }, []);
 
-  // Entrance animation math
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 1100);
+    window.addEventListener("resize", onResize, { passive: true });
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  // Entrance animation math — disabled on mobile (image shows in place)
   const ep      = 1 - Math.pow(1 - scrollProg, 2);
   const spins   = isMod ? 360 : 180;
-  const rollX   = (1 - ep) * -130;
-  const rollRot = (1 - ep) * -spins;
+  const rollX   = isMobile ? 0 : (1 - ep) * -130;
+  const rollRot = isMobile ? 0 : (1 - ep) * -spins;
 
   // ----------------------------------------------------
   // Helper: Generates the thematic strokes for the 5 rings

@@ -42,7 +42,7 @@ function Nav({ route, navigate }) {
       <nav className={"nav" + (scrolled ? " scrolled" : "")}>
         <div className="container nav-inner">
           <a
-            href="#home"
+            href="/"
             className="brand"
             aria-label="Velai Health Analytics — home"
             onClick={(e) => { e.preventDefault(); handleNav("home"); }}
@@ -57,7 +57,7 @@ function Nav({ route, navigate }) {
             {links.map((l) => (
               <a
                 key={l.id}
-                href={"#" + l.id}
+                href={"/" + l.id}
                 className={"nav-link" + (route === l.id ? " active" : "")}
                 onClick={(e) => { e.preventDefault(); handleNav(l.id); }}
               >
@@ -65,7 +65,7 @@ function Nav({ route, navigate }) {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/contact"
               className="btn btn-primary nav-cta"
               onClick={(e) => { e.preventDefault(); handleNav("contact"); }}
             >
@@ -100,7 +100,7 @@ function Nav({ route, navigate }) {
             {links.map((l) => (
               <a
                 key={l.id}
-                href={"#" + l.id}
+                href={"/" + l.id}
                 className={"nav-mobile-link" + (route === l.id ? " active" : "")}
                 onClick={(e) => { e.preventDefault(); handleNav(l.id); }}
               >

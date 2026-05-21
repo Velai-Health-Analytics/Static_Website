@@ -1385,6 +1385,135 @@
 }
 
 /* ══════════════════════════════════════════════════════
+   MOBILE BALL-DROP — S2 & S3: DaVinci drops to bottom on entry
+   Text fades in on top after the drop settles.
+   Desktop: completely unaffected.
+   ══════════════════════════════════════════════════════ */
+
+/* Ball-drop with bouncing settle */
+@keyframes dvBallDrop {
+  0%   { opacity: 0.35; transform: translateY(-65vh); }
+  14%  { opacity: 1; }
+  62%  { transform: translateY(0); }
+  74%  { transform: translateY(-14px); }
+  84%  { transform: translateY(5px); }
+  93%  { transform: translateY(-4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Description panel fade-slide */
+@keyframes mobDescIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1100px) {
+  /* ── DaVinci image column: hidden above section before drop ── */
+  #s-modalities .hs-img,
+  #s-flow .hs-img {
+    opacity: 0;
+    transform: translateY(-65vh);
+  }
+
+  /* Drop animation fires when section is active */
+  #s-modalities .hs-img.img-drop-active,
+  #s-flow .hs-img.img-drop-active {
+    animation: dvBallDrop 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* S2: lock to 100vh — compact tab grid fits cleanly */
+  #s-modalities {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Text overlay: hidden until DaVinci drop settles */
+  .mob-txt-delayed {
+    opacity: 0;
+    transition: opacity 0.45s ease-out;
+  }
+  .mob-txt-delayed.ready { opacity: 1; }
+
+  /* ── 2×2 + 1 modality tab grid ───────────────────── */
+  .mob-mod-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .mob-mod-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    padding: 10px 12px;
+    border: 1.5px solid var(--line-soft);
+    border-radius: 10px;
+    background: color-mix(in oklab, var(--paper) 85%, transparent);
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.2s, background 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mob-mod-tab .num {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--ink-3);
+    letter-spacing: 0.12em;
+  }
+  .mob-mod-tab .tab-title {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  /* Selected tab: coral ring */
+  .mob-mod-tab.selected {
+    border-color: oklch(0.65 0.15 35);
+    background: oklch(0.65 0.15 35 / 0.09);
+  }
+  .mob-mod-tab.selected .num      { color: oklch(0.65 0.15 35); }
+  .mob-mod-tab.selected .tab-title{ color: oklch(0.50 0.12 35); }
+
+  /* 5th tab: spans full row, centred at half width */
+  .mob-mod-tab:nth-child(5) {
+    grid-column: 1 / -1;
+    width: calc(50% - 4px);
+    justify-self: center;
+  }
+
+  /* Description panel beneath the grid */
+  .mob-mod-desc {
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: color-mix(in oklab, var(--paper) 90%, transparent);
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    border-left: 2px solid oklch(0.65 0.15 35 / 0.7);
+    animation: mobDescIn 0.3s ease both;
+  }
+}
+
+/* Skip drop for prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  #s-modalities .hs-img,
+  #s-flow .hs-img {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  .mob-txt-delayed {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════
    DAVINCI PNG — base image styling
    ══════════════════════════════════════════════════════ */
 @keyframes levitate {

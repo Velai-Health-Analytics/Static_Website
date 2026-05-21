@@ -6,18 +6,21 @@ const { useState, useEffect } = React;
 function SectionFlow({ isActive }) {
   const animKey = useActivatedKey(isActive);
   const [textReady, setTextReady] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1100);
 
   useEffect(() => {
-    if (!isActive) {
-      setTextReady(false);
-      return;
-    }
-    // Delay text until the Da Vinci has rolled past the left text column.
-    // The image starts at roughly S2's left-column position and rolls right;
-    // 800ms is after it has clearly crossed the centre line into the right column.
-    const t = setTimeout(() => setTextReady(true), 800);
+    const onResize = () => setIsMobile(window.innerWidth <= 1100);
+    window.addEventListener('resize', onResize, { passive: true });
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  useEffect(() => {
+    if (!isActive) { setTextReady(false); return; }
+    // Desktop: 800ms waits for the DaVinci bridge roll to finish.
+    // Mobile: 650ms matches the ball-drop animation duration.
+    const t = setTimeout(() => setTextReady(true), isMobile ? 650 : 800);
     return () => clearTimeout(t);
-  }, [isActive]);
+  }, [isActive, isMobile]);
 
   const steps = [
     { num: "01", title: "Ingest",   desc: "Multimodal patient data mapped to a longitudinal clinical profile." },
@@ -49,7 +52,7 @@ function SectionFlow({ isActive }) {
           </div>
         </div>
       </div>
-      <div className="hs-img hs-img-r">
+      <div className={`hs-img hs-img-r${isActive ? ' img-drop-active' : ''}`}>
         <DaVinciPanel isActive={isActive} variant="flow" animKey={animKey} />
       </div>
     </section>

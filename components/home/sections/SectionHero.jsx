@@ -7,7 +7,7 @@ function SectionHero({ isActive }) {
     <section className="home-section hs-grid" id="s-hero" data-section="0">
       <div className="hs-txt hs-txt-l">
         <div className="home-section__content">
-          <span className="eyebrow reveal"><span className="dot" />Velai Health Analytics</span>
+          {/* <span className="eyebrow reveal"><span className="dot" />Velai Health Analytics</span> */}
           <div className="home-section__hgroup">
             <h1 className="home-section__h1 reveal" data-delay="1">
               A clearer read<br />on <em>every heart</em>.

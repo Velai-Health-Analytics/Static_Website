@@ -1330,6 +1330,12 @@
   }
   .proof-right    { display: none; }
   .home-side-index { display: none; }
+
+  /* Da Vinci figure: slightly smaller on mobile so it fits the narrower column */
+  #s-modalities .panel-img-wrap.dv-wrap,
+  #s-flow .panel-img-wrap.dv-wrap {
+    width: min(72%, 320px);
+  }
 }
 
 @media (max-width: 720px) {

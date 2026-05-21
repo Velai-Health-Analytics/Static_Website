@@ -7,7 +7,7 @@ const { useState, useEffect, useRef, useCallback } = React;
 function Home() {
   const [activeSection, setActiveSection] = useState(0);
   const [audienceActive, setAudienceActive] = useState(0);
-  const [bridgeActive, setBridgeActive] = useState(false);
+  const [bridgeDir, setBridgeDir] = useState(null); // null | 'forward' | 'reverse'
   const activeRef = useRef(0);
   const bridgeTimerRef = useRef(null);
   useReveal();
@@ -20,25 +20,29 @@ function Home() {
     document.body.classList.remove("bridge-active");
   }, []);
 
+  const fireBridge = useCallback((dir) => {
+    setBridgeDir(dir);
+    document.body.classList.add("bridge-active");
+    clearTimeout(bridgeTimerRef.current);
+    // Bridge animation is 1.1s; small buffer then hand off to the destination panel
+    bridgeTimerRef.current = setTimeout(() => {
+      setBridgeDir(null);
+      document.body.classList.remove("bridge-active");
+    }, 1250);
+  }, []);
+
   const jump = useCallback(i => {
     const el = document.querySelector(`[data-section="${i}"]`);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 
-    // S2 (Modalities) → S3 (Flow): fire the rolling bridge overlay
-    if (i === 2 && activeRef.current === 1) {
-      setBridgeActive(true);
-      document.body.classList.add("bridge-active");
-      clearTimeout(bridgeTimerRef.current);
-      // Bridge animation is 1.1s; give a small buffer then hand off to S3's panel
-      bridgeTimerRef.current = setTimeout(() => {
-        setBridgeActive(false);
-        document.body.classList.remove("bridge-active");
-      }, 1250);
-    }
+    // S2 → S3 (forward): coral left → green right
+    if (i === 2 && activeRef.current === 1) fireBridge('forward');
+    // S3 → S2 (reverse): green right → coral left
+    if (i === 1 && activeRef.current === 2) fireBridge('reverse');
 
     setActiveSection(i);
     activeRef.current = i;
-  }, []);
+  }, [fireBridge]);
 
   // Wheel / touch / keyboard navigation between sections
   useEffect(() => {
@@ -130,7 +134,7 @@ function Home() {
 
   return (
     <>
-      <DaVinciBridge active={bridgeActive} />
+      <DaVinciBridge active={bridgeDir !== null} reverse={bridgeDir === 'reverse'} />
       <SideIndex active={activeSection} onJump={jump} />
       <SectionHero       isActive={activeSection === 0} />
       <SectionModalities isActive={activeSection === 1} />

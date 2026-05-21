@@ -763,6 +763,27 @@
   mix-blend-mode: multiply;
 }
 
+/* ── Reverse bridge: S3 right column → S2 left column ─────────────────────
+   Overrides the default forward positions (higher specificity wins).        */
+.davinci-bridge.dvb-reverse {
+  /* Start centred at 75vw (S3 right column), pre-spun clockwise */
+  transform: translate(calc(75vw - 50%), -50%) rotate(360deg);
+}
+.davinci-bridge.dvb-reverse.dvb-rolling {
+  /* Roll left to 25vw (S2 left column) */
+  transform: translate(calc(25vw - 50%), -50%) rotate(0deg);
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reverse background: start sage (S3 context) → end paper (S2 context) */
+.dvb-bg.dvb-bg-reverse {
+  background: oklch(0.93 0.032 155 / 0.55);
+}
+.dvb-bg.dvb-bg-reverse.dvb-bg-rolling {
+  background: var(--paper);
+  transition: background 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 /* Disable bridge on narrow screens (single-column layout, different geometry) */
 @media (max-width: 1100px) {
   .davinci-bridge { display: none; }

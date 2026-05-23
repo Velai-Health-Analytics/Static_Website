@@ -42,9 +42,10 @@ function Contact() {
                 { label: "Clinical & pilot inquiries", val: <a href="mailto:shivaramvelayutham3223@gmail.com">shivaramvelayutham3223@gmail.com</a> },
                 // { label: "Press",                      val: <a href="mailto:press@velai.health">press@velai.health</a> },
                 { label: "Office",                     val: (<span style={{ fontStyle: "normal", fontSize: 16, lineHeight: 1.55, color: "var(--ink-2)" }}>
-                                                         Velai Health Analytics, Inc.<br />
-                                                         Block C, 4th floor<br />
-                                                         HSR Layout, Bengaluru 560102<br />
+                                                         Velai Health Analytics Pvt LTD.<br />
+                                                         INNOV8 SKCL Tech Square Guindy, 2ND Floor, 
+                                                         SKCL Tech Square NO 14 SP, SIDCOT.V.K Industrial Estate,<br />
+                                                         Guindy, Chennai-600032<br />
                                                          India
                                                        </span>) },
                 { label: "Hours",                      val: (<span style={{ fontStyle: "normal", fontSize: 16, lineHeight: 1.55, color: "var(--ink-2)" }}>

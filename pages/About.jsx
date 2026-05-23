@@ -5,12 +5,12 @@ function About() {
   useReveal();
 
   const team = [
-    { name: "Prof. Lakshminarayanan Subramanian", role: "Co-founder, AI",         bio: "Interventional cardiologist with 12 years in tertiary care. Previously at AIIMS and Cleveland Clinic.",  photo: "/team/lakshmi.jpg" },
-    { name: "Shivaram Velayutham",                role: "Co-founder, AI",         bio: "ML research lead — multimodal models for clinical signal fusion. Ex-Verily, ex-Microsoft Research.",     photo: "/team/me.jpeg" },
-    { name: "Dr. Anuva Kapoor",                   role: "Co-founder, Medicine",   bio: "Polygenic risk scoring across diverse cohorts. Author on 14 cardiovascular-genetic papers.",             photo: "/team/anuva.jpeg" },
-    { name: "Dr. Bhanu Duggal",                   role: "Advisor, Cardiology",    bio: "Built continuity-of-care programmes serving 200k patients across three health systems.",                 photo: "/team/bhanu.jpeg" },
-    { name: "Dr. Mona Duggal",                    role: "Advisor, Digital Health",bio: "Cardiac CT and echo, deep learning for plaque progression. Past faculty at Stanford Radiology.",         photo: "/team/monaduggal.jpg" },
-    { name: "Prof. Balaraman Ravindran",          role: "Advisor, AI",            bio: "Reliability and clinical-grade data pipelines. Previously infra at a leading EHR vendor.",               photo: "/team/ravindran.jpg" },
+    { name: "Prof. Lakshminarayanan Subramanian", role: "Co-founder, AI",         bio: "Professor of Computer Science at NYU Courant and researcher in AI, machine learning, and networked systems. Co-founder of Entrupy, Flipped.ai, and Vel.ai, with work spanning AI-driven hiring, healthcare, and resilient enterprise systems.",  photo: "/team/lakshmi.jpg" },
+    { name: "Shivaram Velayutham",                role: "Co-founder, AI",         bio: "B.Tech + M.Tech in Biological Engineering from IIT Madras",     photo: "/team/me.jpeg" },
+    { name: "Dr. Anuva Kapoor",                   role: "Co-founder, Medicine",   bio: "Junior Resident in Community and Family Medicine from AIIMS Nagpur",             photo: "/team/anuva.jpeg" },
+    { name: "Dr. Bhanu Duggal",                   role: "Advisor, Cardiology",    bio: "Vice-Chancellor of Hemwati Nandan Bahuguna Uttarakhand Medical Education University, Dehradun, and senior interventional cardiologist with over two decades of clinical and academic experience. Former Professor and Head of Cardiology at AIIMS Rishikesh, with research experience at Cleveland Clinic and 100+ publications in cardiovascular medicine.",                 photo: "/team/bhanu.jpeg" },
+    { name: "Dr. Mona Duggal",                    role: "Advisor, Digital Health",bio: "Director at ICMR’s National Institute for Research in Digital Health and Data Science. Former Professor at PGIMER with experience spanning digital health, medical research, and healthcare policy, including prior research roles at Yale University and THSTI.",         photo: "/team/monaduggal.jpg" },
+    { name: "Prof. Balaraman Ravindran",          role: "Advisor, AI",            bio: "Heads Data Science and AI at IIT Madras. Founder of WSAI, RBCDSAI, and CeRAI, with three decades of experience in AI, reinforcement learning, and responsible AI.",               photo: "/team/ravindran.jpg" },
   ];
 
   return (

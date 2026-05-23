@@ -43,7 +43,7 @@ function Contact() {
                 // { label: "Press",                      val: <a href="mailto:press@velai.health">press@velai.health</a> },
                 { label: "Office",                     val: (<span style={{ fontStyle: "normal", fontSize: 16, lineHeight: 1.55, color: "var(--ink-2)" }}>
                                                          Velai Health Analytics Pvt LTD.<br />
-                                                         INNOV8 SKCL Tech Square Guindy, 2ND Floor, 
+                                                         INNOV8 SKCL Tech Square Guindy, 2ND Floor, <br />
                                                          SKCL Tech Square NO 14 SP, SIDCOT.V.K Industrial Estate,<br />
                                                          Guindy, Chennai-600032<br />
                                                          India
